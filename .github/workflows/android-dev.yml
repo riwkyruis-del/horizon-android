@@ -57,6 +57,8 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           persist-credentials: false
+      - name: Enable local native-mod content
+        run: python3 tools/install_android_content_support.py
       - name: Restore dedicated dev signing identity
         env:
           DEV_KEYSTORE: ${{ secrets.ANDROID_DEV_KEYSTORE_BASE64 }}
